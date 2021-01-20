@@ -6,42 +6,65 @@ module.exports = {
     entry: './src/app.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'js/bundle.js'
+    },
+    devServer: {
+        historyApiFallback: true,
+        proxy: {
+            '/products': {
+                target: 'http://localhost:5000',
+            },
+        },
     },
     module: {
-        rules: [
-            {
-                test: /\.scss$/,
+        rules: [{
+            test: /\.scss$/,
 
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            publicPath: ''
-                        }
-                    },
-                    {
-                        loader: "css-loader",
-                        options: { url: false, sourceMap: true}
-                    }
-                    , {
-                        loader: "sass-loader",
-                        options: {sourceMap: true}
-                    }
-                ]
+            use: [{
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                    publicPath: ''
+                }
             },
+                {
+                    loader: "css-loader",
+                    options: {
+                        url: false,
+                        sourceMap: true
+                    }
+                }, {
+                    loader: "sass-loader",
+                    options: {
+                        sourceMap: true
+                    }
+                }
+            ]
+        },
             {
                 test: /\.(png|jpg|jpeg|gif)$/i,
                 loader: 'file-loader',
-                options: {outputPath: 'assets/images', publicPath: '../images', useRelativePaths: true}
+                options: {
+                    outputPath: 'assets/images',
+                    publicPath: '../images',
+                    useRelativePaths: true
+                }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 loader: 'file-loader',
-                options: {outputPath: 'assets/fonts', publicPath: '../fonts', useRelativePaths: true}
+                options: {
+                    outputPath: 'assets/fonts',
+                    publicPath: '../fonts',
+                    useRelativePaths: true
+                }
             }
 
         ]
     },
-    plugins: [new MiniCssExtractPlugin()],
+
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'css/[name].css'
+        })
+    ],
 };
