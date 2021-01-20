@@ -1,0 +1,19 @@
+{
+  "name": "heroku",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stas-lyu/testf02.git"
+  },
+  "author": "Stanislav Lyu <stas-lyu@outlook.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stas-lyu/testf02/issues"
+  },
+  "homepage": "https://github.com/stas-lyu/testf02#readme"
+}
