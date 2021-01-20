@@ -37,7 +37,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_
   \****************************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack:///./src/js/myJsCode.js?");
+eval("console.log('test');\n\n//# sourceURL=webpack:///./src/js/myJsCode.js?");
 
 /***/ })
 
