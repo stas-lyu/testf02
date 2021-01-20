@@ -5,8 +5,8 @@
     "json-server": "json-server --watch db.json --port 5000",
     "start-webpack-dev-server": "webpack serve",
     "build": "webpack --mode production",
-    "start": "webpack --watch --mode development",
-    "dev": "concurrently \"npm run heroku-prebuild\" \"npm run start\" \"npm run json-server\" \"npm run start-webpack-dev-server\" --mode development"
+    "start": "npm run heroku-prebuild webpack --watch --mode development",
+    "dev": "concurrently \"npm run start\" \"npm run json-server\" \"npm run start-webpack-dev-server\" --mode development"
   },
   "dependencies": {
     "json-server": "^0.16.3",
